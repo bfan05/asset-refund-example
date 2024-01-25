@@ -26,8 +26,6 @@ export default function ClaimRefundClient({
   inputs: UserInput<typeof jsonInputs>;
 }) {
   // const { address } = useAccount();
-  console.log(inputs.blockNumber);
-  console.log(inputs.txIdx);
   const router = useRouter();
   const { builtQuery } = useAxiomCircuit();
   const [showExplorerLink, setShowExplorerLink] = useState(false);
@@ -43,8 +41,6 @@ export default function ClaimRefundClient({
     functionName: 'hasClaimed',
     args: [(BigInt(inputs.blockNumber) << BigInt(128) | BigInt(inputs.txIdx)) ?? ""],
   });
-
-  console.log("num: ", ((BigInt(inputs.blockNumber) << BigInt(128) | BigInt(inputs.txIdx)) ?? ""));
 
   useEffect(() => {
     if (isSuccess) {

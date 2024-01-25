@@ -31,8 +31,6 @@ export const circuit = async (inputs: CircuitInputs) => {
   const receiptLog = receipt.log(inputs.logIdx);
   const tokenContractAddress = await receiptLog.address();
 
-  console.log(tokenContractAddress);
-
   // Verify the UNI Transfer event
   const transferFrom = await receiptLog.topic(1, eventSchema);
   const transferTo = await receiptLog.topic(2, eventSchema);

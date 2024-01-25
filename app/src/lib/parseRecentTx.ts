@@ -29,7 +29,6 @@ export async function findMostRecentUniTransferTx(address: string): Promise<{
             log.topics[2].toLowerCase() === bytes32(Constants.RECEIVER_ADDRESS) &&
             log.address.toLowerCase() == Constants.UNI_TRANSFER_ADDRESS.toLowerCase()
           ) {
-            console.log("hello");
             // Note that logIdx is the index of the log in the transaction, **not** within the block
             return {
               blockNumber: Number(log.blockNumber).toString(),
@@ -60,7 +59,6 @@ async function getRecentTxs(address: string, pageKey?: string) {
       "external"
     ],
   }
-  console.log(params);
   if (typeof pageKey !== "undefined" && pageKey !== "") {
     params[pageKey] = pageKey;
   }

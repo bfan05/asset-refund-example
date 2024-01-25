@@ -17,6 +17,7 @@ export default function CheckUniTransferTx() {
         return;
       }
       const recentTransfer = await findMostRecentUniTransferTx(address);
+      console.log(recentTransfer);
       setRecentTransfer(recentTransfer);
     }
     findTx();
